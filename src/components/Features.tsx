@@ -1,11 +1,11 @@
 
 import React from 'react';
-import { Drop, Leaf, Heart, Award } from 'lucide-react';
+import { Droplets, Leaf, Heart, Award } from 'lucide-react';
 
 const Features: React.FC = () => {
   const features = [
     {
-      icon: <Drop className="h-8 w-8" />,
+      icon: <Droplets className="h-8 w-8" />,
       title: "100% Pure",
       description: "Our honey is 100% pure and unfiltered, preserving all the natural enzymes and beneficial properties."
     },
