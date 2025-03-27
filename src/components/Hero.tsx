@@ -69,17 +69,17 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right content */}
+          {/* Right content - Updated honey jar image */}
           <div className="relative animate-fade-in" style={{ animationDelay: "0.5s" }}>
             <div className="relative aspect-square max-w-lg mx-auto">
               <div className="absolute inset-0 bg-gradient-to-tr from-honey-400/30 to-honey-200/30 rounded-full animate-spin-slow opacity-70" />
               <div className="absolute inset-8 bg-gradient-to-bl from-honey-300/40 to-honey-100/40 rounded-full animate-spin-slow opacity-70" style={{ animationDelay: "1s", animationDirection: "reverse" }} />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative h-4/5 w-4/5 rounded-full overflow-hidden glass-effect shadow-xl">
+                <div className="relative h-4/5 w-4/5 overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1587049633312-d628ae10ad3f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-                    alt="Premium honey jar"
-                    className="h-full w-full object-cover"
+                    src="/lovable-uploads/8665a257-149a-41cc-95f3-031a5613f829.png"
+                    alt="Premium honey jar with wooden dipper"
+                    className="h-full w-full object-contain"
                   />
                 </div>
               </div>
