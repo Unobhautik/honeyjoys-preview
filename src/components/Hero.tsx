@@ -75,11 +75,11 @@ const Hero: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-honey-400/30 to-honey-200/30 rounded-full animate-spin-slow opacity-70" />
               <div className="absolute inset-8 bg-gradient-to-bl from-honey-300/40 to-honey-100/40 rounded-full animate-spin-slow opacity-70" style={{ animationDelay: "1s", animationDirection: "reverse" }} />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative h-4/5 w-4/5 overflow-hidden">
+                <div className="relative h-full w-full flex items-center justify-center p-12">
                   <img
                     src="/lovable-uploads/8665a257-149a-41cc-95f3-031a5613f829.png"
                     alt="Premium honey jar with wooden dipper"
-                    className="h-full w-full object-contain"
+                    className="max-h-full max-w-full object-contain"
                   />
                 </div>
               </div>
