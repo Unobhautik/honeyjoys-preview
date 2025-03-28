@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Transition from '../components/Transition';
 import { Send, MapPin, Phone, Mail } from 'lucide-react';
@@ -69,9 +68,9 @@ const Contact: React.FC = () => {
                     <div>
                       <h3 className="font-medium text-honey-900 mb-1">Our Location</h3>
                       <p className="text-honey-700/80">
-                        1234 Honey Lane<br />
-                        Bee City, HC 98765<br />
-                        United States
+                      7/271 3rd Floor, Jivan Jyot Building, <br />
+                      Gathaman Gate Rd, opp. Govt Technical High School,<br />
+                      Palanpur, 385001
                       </p>
                     </div>
                   </div>
@@ -82,7 +81,12 @@ const Contact: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="font-medium text-honey-900 mb-1">Phone</h3>
-                      <p className="text-honey-700/80">(123) 456-7890</p>
+                      <a 
+                        href="tel:+919510653527" 
+                        className="text-honey-700/80 hover:text-honey-900 transition-colors"
+                      >
+                        +91 95106 53527
+                      </a>
                       <p className="text-honey-700/80">Mon-Fri, 9am-5pm EST</p>
                     </div>
                   </div>
@@ -93,8 +97,12 @@ const Contact: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="font-medium text-honey-900 mb-1">Email</h3>
-                      <p className="text-honey-700/80">contact@purehoney.com</p>
-                      <p className="text-honey-700/80">support@purehoney.com</p>
+                      <a 
+                        href="mailto:kalpraj9510@gmail.com" 
+                        className="text-honey-700/80 hover:text-honey-900 transition-colors"
+                      >
+                        kalpraj9510@gmail.com
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -245,7 +253,7 @@ const Contact: React.FC = () => {
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-honey-100 h-96">
               <iframe
                 title="Pure Honey Store Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368400567!3d40.71312937933185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a23e28c1191%3A0x49f75d3281df052a!2s150%20Park%20Row%2C%20New%20York%2C%20NY%2010007%2C%20USA!5e0!3m2!1sen!2sbr!4v1580908359345!5m2!1sen!2sbr"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.1320264528213!2d72.4361687!3d24.167102099999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395ce9018f5e555b%3A0x252e97b3bf54f402!2sKalpRaj%20Store!5e0!3m2!1sen!2sin!4v1743059327087!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
