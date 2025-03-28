@@ -131,7 +131,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                     <button 
                       onClick={(e) => {
                         e.stopPropagation();
-                        document.querySelector(`[data-carousel-prev="dialog-${product.id}"]`)?.click();
+                        const prevButton = document.querySelector(`[data-carousel-prev="dialog-${product.id}"]`) as HTMLButtonElement;
+                        prevButton?.click();
                       }}
                       className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-all opacity-60 hover:opacity-100 z-10"
                       aria-label="Previous image"
@@ -141,7 +142,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                     <button 
                       onClick={(e) => {
                         e.stopPropagation();
-                        document.querySelector(`[data-carousel-next="dialog-${product.id}"]`)?.click();
+                        const nextButton = document.querySelector(`[data-carousel-next="dialog-${product.id}"]`) as HTMLButtonElement;
+                        nextButton?.click();
                       }}
                       className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-all opacity-60 hover:opacity-100 z-10"
                       aria-label="Next image"
