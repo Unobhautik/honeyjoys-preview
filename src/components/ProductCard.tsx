@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ExternalLink, ChevronDown, ChevronUp, Info } from 'lucide-react';
+import { ExternalLink, ChevronDown, ChevronUp, Info, ArrowLeft, ArrowRight } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -8,6 +8,13 @@ import {
   DialogTitle,
   DialogDescription
 } from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export interface ProductProps {
   id: string;
@@ -16,6 +23,7 @@ export interface ProductProps {
   price: string;
   amazonUrl: string;
   imageUrl: string;
+  images?: string[]; // Optional array of additional images
 }
 
 interface ProductCardProps {
@@ -24,6 +32,11 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const [isOpen, setIsOpen] = useState(false);
+  
+  // Create an array of images, starting with the main image
+  const allImages = product.images 
+    ? [product.imageUrl, ...product.images] 
+    : [product.imageUrl];
 
   return (
     <>
@@ -31,13 +44,31 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-honey-100 cursor-pointer"
         onClick={() => setIsOpen(true)}
       >
-        {/* Product Image */}
+        {/* Product Images Carousel */}
         <div className="relative aspect-square overflow-hidden">
-          <img
-            src={product.imageUrl}
-            alt={product.name}
-            className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-          />
+          <Carousel className="w-full h-full">
+            <CarouselContent className="h-full">
+              {allImages.map((image, index) => (
+                <CarouselItem key={`${product.id}-img-${index}`} className="h-full">
+                  <div className="h-full w-full">
+                    <img
+                      src={image}
+                      alt={`${product.name} - image ${index + 1}`}
+                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            
+            {allImages.length > 1 && (
+              <>
+                <CarouselPrevious onClick={(e) => e.stopPropagation()} className="left-2 bg-white/70 hover:bg-white" />
+                <CarouselNext onClick={(e) => e.stopPropagation()} className="right-2 bg-white/70 hover:bg-white" />
+              </>
+            )}
+          </Carousel>
+          
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           
           {/* Info icon overlay */}
@@ -84,13 +115,30 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="max-w-3xl bg-white p-0 rounded-2xl overflow-hidden">
           <div className="grid md:grid-cols-2 h-full">
-            {/* Product Image */}
-            <div className="relative h-60 md:h-full bg-honey-50">
-              <img
-                src={product.imageUrl}
-                alt={product.name}
-                className="w-full h-full object-cover object-center"
-              />
+            {/* Product Image Carousel */}
+            <div className="relative bg-honey-50 h-60 md:h-full">
+              <Carousel className="w-full h-full">
+                <CarouselContent className="h-full">
+                  {allImages.map((image, index) => (
+                    <CarouselItem key={`dialog-${product.id}-img-${index}`} className="h-full">
+                      <div className="h-full w-full">
+                        <img
+                          src={image}
+                          alt={`${product.name} - image ${index + 1}`}
+                          className="w-full h-full object-cover object-center"
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                
+                {allImages.length > 1 && (
+                  <>
+                    <CarouselPrevious className="left-2" />
+                    <CarouselNext className="right-2" />
+                  </>
+                )}
+              </Carousel>
             </div>
             
             {/* Product Details */}
