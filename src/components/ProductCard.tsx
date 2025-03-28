@@ -60,13 +60,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            
-            {allImages.length > 1 && (
-              <>
-                <CarouselPrevious onClick={(e) => e.stopPropagation()} className="left-2 bg-white/70 hover:bg-white" />
-                <CarouselNext onClick={(e) => e.stopPropagation()} className="right-2 bg-white/70 hover:bg-white" />
-              </>
-            )}
           </Carousel>
           
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -134,8 +127,33 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 
                 {allImages.length > 1 && (
                   <>
-                    <CarouselPrevious className="left-2" />
-                    <CarouselNext className="right-2" />
+                    {/* Modern navigation buttons that only appear in the dialog */}
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        document.querySelector(`[data-carousel-prev="dialog-${product.id}"]`)?.click();
+                      }}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-all opacity-60 hover:opacity-100 z-10"
+                      aria-label="Previous image"
+                    >
+                      <ArrowLeft className="h-5 w-5 text-honey-800" />
+                    </button>
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        document.querySelector(`[data-carousel-next="dialog-${product.id}"]`)?.click();
+                      }}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-all opacity-60 hover:opacity-100 z-10"
+                      aria-label="Next image"
+                    >
+                      <ArrowRight className="h-5 w-5 text-honey-800" />
+                    </button>
+                    
+                    {/* Hidden buttons that actually control the carousel */}
+                    <div className="sr-only">
+                      <CarouselPrevious data-carousel-prev={`dialog-${product.id}`} />
+                      <CarouselNext data-carousel-next={`dialog-${product.id}`} />
+                    </div>
                   </>
                 )}
               </Carousel>
