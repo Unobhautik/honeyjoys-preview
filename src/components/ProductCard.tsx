@@ -78,14 +78,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             Buy Now
           </a>
         </div>
-        
-        {/* View Details hint - shows on hover */}
-        <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="bg-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
-            <span className="font-medium text-honey-800">View Details</span>
-            <ChevronDown className="h-4 w-4 text-honey-600" />
-          </div>
-        </div>
       </div>
 
       {/* Detailed Product Dialog */}
