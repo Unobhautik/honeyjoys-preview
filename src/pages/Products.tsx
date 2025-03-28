@@ -17,32 +17,32 @@ const Products: React.FC = () => {
   return (
     <Transition>
       <div className="min-h-screen pt-24 pb-20 bg-cream-50">
-        <div className="container px-6 md:px-10 max-w-7xl mx-auto">
+        <div className="container px-4 md:px-8 max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12 space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-honey-900">Our Products</h1>
-            <p className="text-honey-700/80 max-w-2xl mx-auto">
+          <div className="text-center mb-8 space-y-3">
+            <h1 className="text-3xl md:text-4xl font-bold text-honey-900">Our Products</h1>
+            <p className="text-honey-700/80 max-w-2xl mx-auto text-sm md:text-base">
               Discover our range of premium honey products, each carefully harvested and processed to preserve all natural benefits.
             </p>
 
             {/* Search */}
-            <div className="relative max-w-md mx-auto mt-8">
+            <div className="relative max-w-md mx-auto mt-6">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Search className="h-5 w-5 text-honey-400" />
+                <Search className="h-4 w-4 text-honey-400" />
               </div>
               <input
                 type="text"
                 placeholder="Search products..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="block w-full pl-10 pr-4 py-3 border border-honey-200 rounded-lg focus:ring-2 focus:ring-honey-500 focus:border-transparent bg-white placeholder-honey-400 text-honey-800 transition-all duration-200"
+                className="block w-full pl-9 pr-4 py-2 border border-honey-200 rounded-lg focus:ring-2 focus:ring-honey-500 focus:border-transparent bg-white placeholder-honey-400 text-honey-800 transition-all duration-200"
               />
             </div>
           </div>
 
-          {/* Products Grid */}
+          {/* Products Grid - Updated to be denser */}
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4">
               {filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
