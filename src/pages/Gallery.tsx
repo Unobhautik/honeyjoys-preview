@@ -2,7 +2,7 @@
 import React from 'react';
 import Transition from '../components/Transition';
 import { products } from '../data/products';
-import { Gallery, Star, User } from 'lucide-react';
+import { ImageIcon, Star, User } from 'lucide-react';
 
 const GalleryPage: React.FC = () => {
   // Collect all product images

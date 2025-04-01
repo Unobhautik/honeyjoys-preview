@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Transition from '../components/Transition';
 import { Send, MapPin, Phone, Mail } from 'lucide-react';
@@ -253,11 +254,11 @@ const Contact: React.FC = () => {
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-honey-100 h-96">
               <iframe
                 title="Pure Honey Store Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.1320264528213!2d72.4361687!3d24.167102099999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395ce9018f5e555b%3A0x252e97b3bf54f402!2sKalpRaj%20Store!5e0!3m2!1sen!2sin!4v1743059327087!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.1320264528213!2d72.4361687!3d24.167102099999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395ce9018f5e555b%3A0x252e97b3bf54f402!2sKalpRaj%20Store!5e0!3m2!1sen!2sin!4v1743059327087!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
-                allowFullScreen
+                allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
