@@ -37,6 +37,7 @@ const Navbar: React.FC = () => {
         <nav className="hidden md:flex items-center space-x-8">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/products">Products</NavLink>
+          <NavLink to="/gallery">Gallery</NavLink>
           <NavLink to="/about">About Us</NavLink>
           <NavLink to="/contact">Contact</NavLink>
         </nav>
@@ -64,6 +65,9 @@ const Navbar: React.FC = () => {
             </MobileNavLink>
             <MobileNavLink to="/products" onClick={() => setIsMobileMenuOpen(false)}>
               Products
+            </MobileNavLink>
+            <MobileNavLink to="/gallery" onClick={() => setIsMobileMenuOpen(false)}>
+              Gallery
             </MobileNavLink>
             <MobileNavLink to="/about" onClick={() => setIsMobileMenuOpen(false)}>
               About Us

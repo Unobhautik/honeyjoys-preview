@@ -2,6 +2,7 @@
 import React from 'react';
 import Transition from '../components/Transition';
 import { Link } from 'react-router-dom';
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const About: React.FC = () => {
   return (
@@ -127,31 +128,36 @@ const About: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  name: "David Miller",
+                  name: "Arjun Sharma",
                   role: "Founder & Head Beekeeper",
-                  image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-                  bio: "With over 20 years of beekeeping experience, David founded Pure Honey with a mission to share the wonders of natural honey."
+                  gender: "male",
+                  color: "bg-blue-100",
+                  bio: "With over 20 years of beekeeping experience, Arjun founded Pure Honey with a mission to share the wonders of natural honey across India."
                 },
                 {
-                  name: "Sarah Johnson",
+                  name: "Meera Patel",
                   role: "Operations Manager",
-                  image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-                  bio: "Sarah ensures our honey production maintains the highest standards of quality and sustainability."
+                  gender: "female",
+                  color: "bg-pink-100",
+                  bio: "Meera ensures our honey production maintains the highest standards of quality and sustainability while supporting local communities."
                 },
                 {
-                  name: "Michael Chen",
+                  name: "Vikram Singh",
                   role: "Bee Conservation Specialist",
-                  image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-                  bio: "Michael focuses on developing sustainable practices that support honey bee health and population growth."
+                  gender: "male",
+                  color: "bg-green-100",
+                  bio: "Vikram focuses on developing sustainable practices that support honey bee health and population growth throughout rural India."
                 }
               ].map((member, index) => (
                 <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm border border-honey-100">
-                  <div className="aspect-square overflow-hidden">
-                    <img 
-                      src={member.image}
-                      alt={member.name}
-                      className="h-full w-full object-cover"
-                    />
+                  <div className="aspect-square overflow-hidden flex items-center justify-center p-6">
+                    <div className={`rounded-full ${member.color} w-4/5 h-4/5 flex items-center justify-center shadow-inner`}>
+                      <Avatar className="w-full h-full">
+                        <AvatarFallback className="text-7xl font-light">
+                          {member.gender === "male" ? "👨" : "👩"}
+                        </AvatarFallback>
+                      </Avatar>
+                    </div>
                   </div>
                   <div className="p-6 text-center">
                     <h3 className="text-xl font-medium text-honey-900">{member.name}</h3>

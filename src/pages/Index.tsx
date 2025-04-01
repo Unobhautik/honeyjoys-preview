@@ -5,7 +5,7 @@ import Hero from '../components/Hero';
 import Features from '../components/Features';
 import ProductCard from '../components/ProductCard';
 import { products } from '../data/products';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Index: React.FC = () => {
@@ -64,23 +64,35 @@ const Index: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
-                  quote: "The best honey I've ever tasted! Pure, raw and full of flavor. I'll never go back to store-bought.",
-                  author: "Sarah J.",
-                  location: "Portland, OR"
+                  quote: "मैंने कई honey brands को try किया है लेकिन इस pure honey का taste और quality is simply amazing. Daily use के लिए perfect है!",
+                  author: "Priya Sharma",
+                  location: "Mumbai, Maharashtra",
+                  rating: 5
                 },
                 {
-                  quote: "I love how transparent this company is about their sourcing. The wildflower honey is incredible on my morning toast.",
-                  author: "Michael T.",
-                  location: "Chicago, IL"
+                  quote: "This Manuka honey has helped me so much with my sore throat. मेरे परिवार के सभी सदस्य अब इसे regular use करते हैं. Totally worth the price!",
+                  author: "Rajesh Patel",
+                  location: "Bangalore, Karnataka",
+                  rating: 5
                 },
                 {
-                  quote: "Their Manuka honey helped soothe my sore throat during cold season. A bit pricey but worth every penny.",
-                  author: "Emily R.",
-                  location: "Denver, CO"
+                  quote: "100% natural और organic honey. मैं इसे अपनी चाय में हर रोज use करती हूँ। The company's transparency about their sourcing is what I appreciate the most.",
+                  author: "Ananya Gupta",
+                  location: "New Delhi, Delhi",
+                  rating: 4
                 }
               ].map((testimonial, index) => (
                 <div key={index} className="bg-white p-8 rounded-xl shadow-sm border border-honey-100 relative">
                   <div className="absolute -top-4 left-8 text-5xl text-honey-400">"</div>
+                  <div className="flex items-center mb-3">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star 
+                        key={i} 
+                        size={16} 
+                        className={i < testimonial.rating ? "fill-honey-400 text-honey-400" : "text-honey-200"} 
+                      />
+                    ))}
+                  </div>
                   <p className="text-honey-800 mb-6 relative z-10">
                     {testimonial.quote}
                   </p>
