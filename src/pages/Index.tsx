@@ -1,16 +1,17 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Transition from '../components/Transition';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
 import ProductCard from '../components/ProductCard';
 import { products } from '../data/products';
 import { ArrowRight, Star } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Index: React.FC = () => {
   // Featured products (show only 4)
   const featuredProducts = products.slice(0, 4);
+  const navigate = useNavigate();
 
   return (
     <Transition>
@@ -31,12 +32,12 @@ const Index: React.FC = () => {
                   Browse our selection of premium quality honey products.
                 </p>
               </div>
-              <Link
-                to="/products"
+              <button
+                onClick={() => navigate('/products')}
                 className="inline-flex items-center gap-2 text-honey-600 hover:text-honey-800 font-medium transition-colors"
               >
                 View All Products <ArrowRight className="h-4 w-4" />
-              </Link>
+              </button>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -118,12 +119,12 @@ const Index: React.FC = () => {
             <p className="text-honey-100/80 max-w-2xl mx-auto mb-8">
               Try our premium honey products and taste the difference that quality makes.
             </p>
-            <Link
-              to="/products"
+            <button
+              onClick={() => navigate('/products')}
               className="inline-flex items-center gap-2 bg-honey-500 hover:bg-honey-600 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-lg shadow-honey-600/20"
             >
               Shop Now <ArrowRight className="h-4 w-4" />
-            </Link>
+            </button>
           </div>
         </section>
       </div>

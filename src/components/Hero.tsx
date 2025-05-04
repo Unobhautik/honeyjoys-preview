@@ -1,10 +1,11 @@
 
 import React, { useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -54,18 +55,18 @@ const Hero: React.FC = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-              <Link
-                to="/products"
+              <button
+                onClick={() => navigate('/products')}
                 className="bg-honey-500 hover:bg-honey-600 text-white px-8 py-3 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors duration-300 shadow-lg shadow-honey-500/20"
               >
                 Shop Now <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                to="/about"
+              </button>
+              <button
+                onClick={() => navigate('/about')}
                 className="bg-white hover:bg-honey-50 text-honey-800 px-8 py-3 rounded-lg font-medium border border-honey-200 transition-colors duration-300"
               >
                 Learn More
-              </Link>
+              </button>
             </div>
           </div>
 
