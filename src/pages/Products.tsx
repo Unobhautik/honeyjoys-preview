@@ -4,6 +4,7 @@ import Transition from '../components/Transition';
 import ProductCard from '../components/ProductCard';
 import { products } from '../data/products';
 import { Search } from 'lucide-react';
+import { Helmet } from 'react-helmet';
 
 const Products: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -13,9 +14,41 @@ const Products: React.FC = () => {
     product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
     product.description.toLowerCase().includes(searchQuery.toLowerCase())
   );
+  
+  // Add structured data for product list
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": products.map((product, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Product",
+        "name": product.name,
+        "description": product.description,
+        "image": product.imageUrl,
+        "offers": {
+          "@type": "Offer",
+          "price": product.price.replace('₹', ''),
+          "priceCurrency": "INR",
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    }))
+  };
 
   return (
     <Transition>
+      <Helmet>
+        <title>Premium Honey Products - KalpRaj Honey</title>
+        <meta name="description" content="Explore our range of premium quality, raw, unfiltered honey products. Find specialty varieties like Ajmo, Suva, Til, and Saunf honey with natural health benefits." />
+        <meta name="keywords" content="honey products, organic honey, pure honey, raw honey, unfiltered honey, Ajmo honey, Suva honey, Til honey, Saunf honey" />
+        <link rel="canonical" href="https://kalprajhoney.com/products" />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+
       <div className="min-h-screen pt-24 pb-20 bg-cream-50">
         <div className="container px-4 md:px-8 max-w-7xl mx-auto">
           {/* Header */}
@@ -36,6 +69,7 @@ const Products: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="block w-full pl-9 pr-4 py-2 border border-honey-200 rounded-lg focus:ring-2 focus:ring-honey-500 focus:border-transparent bg-white placeholder-honey-400 text-honey-800 transition-all duration-200"
+                aria-label="Search products"
               />
             </div>
           </div>
