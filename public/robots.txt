@@ -9,7 +9,7 @@ Allow: /about
 Allow: /contact
 
 # Sitemap location
-Sitemap: https://kalprajhoney.com/sitemap.xml
+Sitemap: https://kalpraj.in/sitemap.xml
 
 # Crawl delay for all bots
 Crawl-delay: 10
